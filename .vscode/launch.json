@@ -2,6 +2,196 @@
   "version": "0.2.0",
   "configurations": [
     {
+      "name": "RobotCode: Run All",
+      "type": "robotcode",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "target": "."
+    },
+    {
+      "name": "Launch Program",
+      "program": "${workspaceFolder}/app.js",
+      "request": "launch",
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "type": "node"
+    },
+    {
+      "type": "lldb",
+      "request": "launch",
+      "name": "Launch",
+      "program": "${workspaceFolder}/<program>",
+      "args": [],
+      "cwd": "${workspaceFolder}"
+    },
+    {
+      "name": "(gdb) Launch",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "enter program name, for example ${workspaceFolder}/a.out",
+      "args": [],
+      "stopAtEntry": false,
+      "cwd": "${fileDirname}",
+      "environment": [],
+      "externalConsole": false,
+      "MIMode": "gdb",
+      "setupCommands": [
+          {
+              "description": "Enable pretty-printing for gdb",
+              "text": "-enable-pretty-printing",
+              "ignoreFailures": true
+          },
+          {
+              "description": "Set Disassembly Flavor to Intel",
+              "text": "-gdb-set disassembly-flavor intel",
+              "ignoreFailures": true
+          }
+      ]
+    },
+    {
+      "name": "PlatformIO Debugger",
+      "request": "launch",
+      "type": "platformio-debug",
+      "executable": ".pio/build/myenv/firmware.elf",
+      "toolchainBinDir": "/usr/local/bin"
+    },
+    {
+      "name": "(gdb) Pipe Launch",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "enter program name, for example ${workspaceFolder}/a.out",
+      "args": [],
+      "stopAtEntry": false,
+      "cwd": "${fileDirname}",
+      "environment": [],
+      "externalConsole": false,
+      "pipeTransport": {
+        "debuggerPath": "/usr/bin/gdb",
+        "pipeProgram": "/usr/bin/ssh",
+        "pipeArgs": [],
+        "pipeCwd": ""
+      },
+      "MIMode": "gdb",
+      "setupCommands": [
+          {
+              "description": "Enable pretty-printing for gdb",
+              "text": "-enable-pretty-printing",
+              "ignoreFailures": true
+          },
+          {
+              "description": "Set Disassembly Flavor to Intel",
+              "text": "-gdb-set disassembly-flavor intel",
+              "ignoreFailures": true
+          }
+      ]
+    },
+    {
+      "name": "(gdb) Attach",
+      "type": "cppdbg",
+      "request": "attach",
+      "program": "enter program name, for example ${workspaceFolder}/a.out",
+      "MIMode": "gdb",
+      "setupCommands": [
+          {
+              "description": "Enable pretty-printing for gdb",
+              "text": "-enable-pretty-printing",
+              "ignoreFailures": true
+          },
+          {
+              "description": "Set Disassembly Flavor to Intel",
+              "text": "-gdb-set disassembly-flavor intel",
+              "ignoreFailures": true
+          }
+      ]
+    },
+
+    {
+      "name": "Launch Program",
+      "program": "${workspaceFolder}/app.js",
+      "request": "launch",
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "type": "node"
+    },
+    {
+      "name": "PowerShell: Binary Module Pester Tests",
+      "type": "PowerShell",
+      "request": "launch",
+      "script": "Invoke-Pester",
+      "createTemporaryIntegratedConsole": true,
+      "attachDotnetDebugger": true
+    },
+    {
+      "name": "(gdb) Attach",
+      "type": "cppdbg",
+      "request": "attach",
+      "program": "enter program name, for example ${workspaceFolder}/a.out",
+      "MIMode": "gdb",
+      "setupCommands": [
+          {
+              "description": "Enable pretty-printing for gdb",
+              "text": "-enable-pretty-printing",
+              "ignoreFailures": true
+          },
+          {
+              "description": "Set Disassembly Flavor to Intel",
+              "text": "-gdb-set disassembly-flavor intel",
+              "ignoreFailures": true
+          }
+      ]
+    },
+
+    {
+      "name": "Attach to Port",
+      "type": "jdk",
+      "request": "attach",
+      "hostName": "localhost",
+      "port": "8000"
+    },
+    {
+      "type": "lldb",
+      "request": "launch",
+      "name": "Launch",
+      "program": "${workspaceFolder}/<program>",
+      "args": [],
+      "cwd": "${workspaceFolder}"
+    },
+    {"name":"Python Debugger: Attach using Process Id","type":"debugpy","request":"attach","processId":"${command:pickProcess}"},
+    {
+      "type": "robot",
+      "request": "launch",
+      "name": "Robotframework Debugger",
+      "program": "${workspaceFolder}/${relativeFile}",
+      "WorkingDirectory": "${workspaceFolder}/${relativeFile}",
+      "stopOnEntry": false,
+      "arguments": "",
+      "libraries": [],
+      "variables": [
+        {
+          "Name": "Variable",
+          "Value": "Value"
+        }
+      ]
+    },
+
+    {
+      "name": "RobotCode: Remote-Attach",
+      "type": "robotcode",
+      "request": "attach",
+      "connect": {
+        "host": "localhost",
+        "port": 6612
+      },
+      "pathMappings": [
+        {
+          "localRoot": "${workspaceFolder}",
+          "remoteRoot": "."
+        }
+      ]
+    },
+    {
       "name": "C/C++ Runner: Debug Session",
       "type": "cppdbg",
       "request": "launch",
